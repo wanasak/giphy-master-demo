@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchForm from './components/search-form/SearchFormContainer';
+import SearchResults from './components/search-form/SearchResultsContainer';
+
+// const results = [
+//   {
+//     thumbnail: 'https://media0.giphy.com/media/QKBkck4ATQuicTviby/200_s.gif',
+//     full: 'https://media0.giphy.com/media/QKBkck4ATQuicTviby/giphy.gif'
+//   },
+//   {
+//     thumbnail: 'https://media3.giphy.com/media/5z3XmEZfQZ5xlS5fXp/200_s.gif',
+//     full: 'https://media3.giphy.com/media/5z3XmEZfQZ5xlS5fXp/giphy.gif'
+//   }
+// ];
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <SearchForm />
+        <SearchResults />
       </div>
     );
   }
