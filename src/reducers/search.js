@@ -5,8 +5,9 @@ const initialState = {
 };
 
 function searchResultTranformer(raw) {
-  const { images } = raw;
+  const { images, id } = raw;
   return {
+    id: id,
     thumbnail: images.fixed_height_small_still.url,
     full: images.original.url
   };

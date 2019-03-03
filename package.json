@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-regenerator-runtime": "^6.5.0",
+    "classnames": "^2.2.6",
     "history": "^4.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -18,7 +19,7 @@
     "redux-saga": "^0.16.0"
   },
   "scripts": {
-    "start": "react-scripts start --history-api-fallback",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -31,5 +32,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1"
+  }
 }

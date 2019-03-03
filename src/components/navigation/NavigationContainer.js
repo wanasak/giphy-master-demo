@@ -4,12 +4,12 @@ import Navigation from './Navigation';
 
 const pages = [
   { path: '/', title: 'Search' },
-  { path: 'trending', title: 'Trending' },
-  { path: 'random', title: 'Random' }
+  { path: '/trending', title: 'Trending' },
+  { path: '/random', title: 'Random' }
 ];
 
-function mapStateToProps() {
-  return { pages };
+function mapStateToProps(state) {
+  return { pages, currentPath: state.router.location.pathname };
 }
 
 function mapDispatchToProps(dispatch) {
