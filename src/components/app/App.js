@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import SearchForm from './components/search-form/SearchFormContainer';
-import SearchResults from './components/search-form/SearchResultsContainer';
+// import SearchForm from '../search-form/SearchFormContainer';
+// import SearchResults from './components/search-form/SearchResultsContainer';
+import Navigation from '../navigation/NavigationContainer';
 
 // const results = [
 //   {
@@ -14,15 +15,9 @@ import SearchResults from './components/search-form/SearchResultsContainer';
 //   }
 // ];
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <SearchForm />
-        <SearchResults />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default ({ children }) => (
+  <div>
+    <Navigation />
+    {children}
+  </div>
+);
