@@ -3,7 +3,10 @@ import Search from './SearchPage';
 import { newSearch, search } from '../../../actions/search';
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    isLoading: state.search.isLoading,
+    isActive: state.search.isActive
+  };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Spinner from '../spinner/Spinner';
 
 export default class InfiniteScroll extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
     isLoading: PropTypes.bool.isRequired,
-    onTrigger: PropTypes.func.isRequired
+    onTrigger: PropTypes.func.isRequired,
+    isActive: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -23,10 +25,10 @@ export default class InfiniteScroll extends Component {
   }
 
   scrollListener() {
-    const { isLoading, onTrigger } = this.props;
+    const { isLoading, onTrigger, isActive } = this.props;
     const viewportHeight = document.documentElement.clientHeight;
     const { bottom } = this.contianer.getBoundingClientRect();
-    if (!isLoading && bottom - 1 <= viewportHeight) {
+    if (isActive && !isLoading && bottom - 1 <= viewportHeight) {
       onTrigger();
     }
   }
@@ -36,7 +38,7 @@ export default class InfiniteScroll extends Component {
     return (
       <div ref={e => (this.contianer = e)}>
         {children}
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <Spinner />}
       </div>
     );
   }
