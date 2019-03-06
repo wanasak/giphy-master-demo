@@ -1,7 +1,9 @@
-import { SEARCH_SUCCESS } from '../actions/search';
+import { SEARCH_SUCCESS, NEW_SEARCH } from '../actions/search';
 
 const initialState = {
-  results: []
+  results: [],
+  currentOffset: 0,
+  searchTerm: null
 };
 
 function searchResultTranformer(raw) {
@@ -20,7 +22,20 @@ export default (state, action) => {
 
   switch (action.type) {
     case SEARCH_SUCCESS:
-      return { ...state, results: action.results.map(searchResultTranformer) };
+      return {
+        ...state,
+        currentOffset: state.currentOffset + 50,
+        results: state.results.concat(
+          action.results.map(searchResultTranformer)
+        )
+      };
+    case NEW_SEARCH:
+      return {
+        ...state,
+        results: [],
+        currentOffset: 0,
+        searchTerm: action.term
+      };
     default:
       return state;
   }

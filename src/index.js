@@ -9,11 +9,11 @@ import reducer from './reducers';
 import { createLogger } from 'redux-logger';
 import searchSaga from './sagas/search';
 import createSagaMiddleware from 'redux-saga';
-import { Router, Route } from 'react-router';
+import { Route } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/app/AppContainer';
-import SearchPage from './components/pages/search/SearchPage';
+import SearchPage from './components/pages/search/SearchPageContainer';
 import RandomPage from './components/pages/random/RandomPage';
 import TrendingPage from './components/pages/trending/TrendingPage';
 
