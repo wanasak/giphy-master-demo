@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
 // import SearchForm from '../search-form/SearchFormContainer';
 // import SearchResults from './components/search-form/SearchResultsContainer';
 import Navigation from '../navigation/NavigationContainer';
+import GiphyDisplay from '../giphy-display/GiphyDisplay';
+import PropTypes from 'prop-types';
+import { SearchResult } from '../../lib/custom-type';
 
 // const results = [
 //   {
@@ -15,9 +17,28 @@ import Navigation from '../navigation/NavigationContainer';
 //   }
 // ];
 
-export default ({ children }) => (
+const App = ({
+  children,
+  giphyDisplayIsShown,
+  giphyDisplayed,
+  hideGiphyDisplay
+}) => (
   <div>
+    {/* <h1 className={styles.header}>Giphy Master</h1> */}
     <Navigation />
     {children}
+    <GiphyDisplay
+      isShown={giphyDisplayIsShown}
+      onClick={hideGiphyDisplay}
+      giphy={giphyDisplayed}
+    />
   </div>
 );
+
+App.propTypes = {
+  giphyDisplayIsShown: PropTypes.bool.isRequired,
+  giphyDisplayed: SearchResult,
+  hideGiphyDisplay: PropTypes.func.isRequired
+};
+
+export default App;

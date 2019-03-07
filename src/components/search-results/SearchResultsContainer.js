@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import SearchResults from './SearchResults';
+import { showGiphyDisplay } from '../../actions/giphy';
 
 function mapStateToProps(state) {
   return {
@@ -7,4 +8,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(SearchResults);
+function mapDispatchToProps(dispatch) {
+  return {
+    searchResultClicked: giphy => dispatch(showGiphyDisplay(giphy))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchResults);
