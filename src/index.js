@@ -8,14 +8,15 @@ import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers';
 import { createLogger } from 'redux-logger';
 import searchSaga from './sagas/search';
+import randomSaga from './sagas/random';
 import createSagaMiddleware from 'redux-saga';
 import { Route } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/app/AppContainer';
-import SearchPage from './components/pages/search/SearchPageContainer';
-import RandomPage from './components/pages/random/RandomPage';
-import TrendingPage from './components/pages/trending/TrendingContainer';
+import SearchPageContainer from './components/pages/search/SearchContainer';
+import RandomContainer from './components/pages/random/RandomContainer';
+import TrendingContainer from './components/pages/trending/TrendingContainer';
 
 const sagas = createSagaMiddleware();
 const history = createBrowserHistory();
@@ -26,14 +27,15 @@ const store = createStore(
 );
 
 sagas.run(searchSaga);
+sagas.run(randomSaga);
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App>
-        <Route exact path="/" component={SearchPage} />
-        <Route path="/trending" component={TrendingPage} />
-        <Route path="/random" component={RandomPage} />
+        <Route exact path="/" component={SearchPageContainer} />
+        <Route path="/trending" component={TrendingContainer} />
+        <Route path="/random" component={RandomContainer} />
       </App>
     </ConnectedRouter>
   </Provider>,
