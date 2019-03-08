@@ -15,7 +15,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/app/AppContainer';
 import SearchPage from './components/pages/search/SearchPageContainer';
 import RandomPage from './components/pages/random/RandomPage';
-import TrendingPage from './components/pages/trending/TrendingPage';
+import TrendingPage from './components/pages/trending/TrendingContainer';
 
 const sagas = createSagaMiddleware();
 const history = createBrowserHistory();

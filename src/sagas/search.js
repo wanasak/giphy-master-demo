@@ -9,13 +9,14 @@ const selectSearchState = state => state.search;
 function* doSearch() {
   const { currentOffset, searchTerm } = yield select(selectSearchState);
   try {
+    const endpoint = searchTerm === undefined ? 'trending' : 'search';
     const searchResults = yield call(
       axios.get,
-      'https://api.giphy.com/v1/gifs/search',
+      `https://api.giphy.com/v1/gifs/${endpoint}`,
       {
         params: {
           apiKey,
-          q: searchTerm,
+          q: searchTerm ? searchTerm : '',
           limit: 50,
           offset: currentOffset
         }

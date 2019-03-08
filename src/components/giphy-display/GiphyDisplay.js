@@ -8,7 +8,7 @@ export default function GiphyDisplay({ onClick, isShown, giphy }) {
   const containerClassnames = classNames(styles.container, {
     [styles.isShown]: isShown
   });
-  console.log(giphy);
+
   return (
     <div className={containerClassnames} onClick={onClick}>
       <img alt="" className={styles.image} src={giphy ? giphy.full : ''} />
