@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { put, call, takeLatest, select } from 'redux-saga/effects';
 import { SEARCH, searchError, searchSuccess } from '../actions/search';
-
-const apiKey = 'jiBsbSEgy2P7YdorxTMBsNnY2oijCUaz';
+import { apiKey } from '../configs/config';
 
 const selectSearchState = state => state.search;
 

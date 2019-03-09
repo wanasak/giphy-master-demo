@@ -5,8 +5,7 @@ import {
   getRandomGiphySuccess,
   GET_RANDOM_GIPHY
 } from '../actions/random';
-
-const apiKey = 'jiBsbSEgy2P7YdorxTMBsNnY2oijCUaz';
+import { apiKey } from '../configs/config';
 
 function* getRandomGiphy() {
   try {
